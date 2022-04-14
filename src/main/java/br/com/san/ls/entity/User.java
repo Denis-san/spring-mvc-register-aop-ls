@@ -3,24 +3,24 @@ package br.com.san.ls.entity;
 import java.util.Objects;
 
 public class User {
-	
+
 	private Integer id;
 	private String name;
 	private String lastName;
-	
-	private Address adress;
-	
+
+	private Address address;
+
 	private UserLogin userLogin;
-	
+
 	public User() {
 	}
 
-	public User(Integer id, String name, String lastName, Address adress, UserLogin userLogin) {
+	public User(Integer id, String name, String lastName, Address address, UserLogin userLogin) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
-		this.adress = adress;
+		this.address = address;
 		this.userLogin = userLogin;
 	}
 
@@ -48,12 +48,12 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public Address getAdress() {
-		return adress;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAdress(Address adress) {
-		this.adress = adress;
+	public void setAddress(Address adress) {
+		this.address = adress;
 	}
 
 	public UserLogin getUserLogin() {
@@ -80,6 +80,5 @@ public class User {
 		User other = (User) obj;
 		return Objects.equals(id, other.id) && Objects.equals(userLogin, other.userLogin);
 	}
-	
-	
+
 }

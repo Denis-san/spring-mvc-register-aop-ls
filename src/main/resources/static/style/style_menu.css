@@ -1,0 +1,103 @@
+/*-------------Menu------------------*/
+nav{
+	background-color: #2f5061;
+}
+
+#navLinks a{
+	color: white;
+}
+
+#btnLogin, #btSearch{
+	border-color: #e57f84;
+	color: white;
+}
+
+#btnLogin:hover, #btSearch:hover{
+	background-color: #e57f84;
+}
+
+
+/*-------------logged Menu------------------*/
+
+#menuDrop{
+	background-color: #2f5061;
+	border: none;
+	border-radius: 0;
+}
+
+#menuDrop li a{
+	color: white;
+}
+
+#menuDrop li a:hover{
+	background-color: #4297a0;
+}
+
+#sideMenu{
+	background-color: #172830;
+}
+
+#sideMenu li:hover{
+	background-color: #4297a0;
+}
+
+#sideBar li{
+      border-radius: 0.3rem;
+      list-style: none;
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-weight: 500;
+      transition: 0.2s;
+  }
+
+  #sideBar li a:hover{
+      color: white;
+  }
+
+  #sideBar li a{
+    color: white;
+    text-decoration: none;
+  }
+
+
+#inputSearch{
+    background-color: rgb(245, 247, 251);
+    text-indent: 4%;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(119, 119, 119);
+}
+
+
+#loginIconNav {
+    width: 50px;
+    cursor: pointer;
+    
+}
+
+
+#loginIconNav {
+    width: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 540px) {
+    #loginIconDiv {
+     display: none;
+       
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    #formDiv {
+     width: 100%;
+    
+    }
+  }
+
+  @media screen and (max-width: 330px) {
+    #btSearch {
+     display: none;
+       
+    }
+  }
