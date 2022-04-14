@@ -17,5 +17,5 @@ public class UserRegisterController {
 		mv.addObject("user", new User());
 		return mv;
 	}
-	
+
 }

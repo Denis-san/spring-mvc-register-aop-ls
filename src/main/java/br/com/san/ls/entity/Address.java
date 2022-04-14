@@ -1,12 +1,28 @@
 package br.com.san.ls.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Address {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "address_tb")
+public class Address implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String city;
 	private String state;
+	
+	@Column(name = "address_name")
 	private String addressName;
 	private String district;
 	private String complement;

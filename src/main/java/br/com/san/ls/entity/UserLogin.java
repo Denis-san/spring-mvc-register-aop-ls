@@ -1,12 +1,30 @@
 package br.com.san.ls.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class UserLogin {
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "user_login_tb")
+public class UserLogin implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String email;
 	private String password;
+
+	@OneToOne(mappedBy = "userLogin", fetch = FetchType.LAZY)
+	private User user;
 
 	public UserLogin() {
 	}
@@ -40,6 +58,14 @@ public class UserLogin {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
