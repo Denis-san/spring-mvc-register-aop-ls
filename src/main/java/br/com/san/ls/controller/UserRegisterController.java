@@ -29,7 +29,7 @@ public class UserRegisterController {
 
 		service.save(user);
 
-		return "redirect:/user/register";
+		return "/register_templates/welcome_user.html";
 	}
 
 }
