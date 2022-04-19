@@ -31,7 +31,7 @@
 
 						<div class="h-100 pt-3 px-5 ">
 							<div>
-								<form action="#" th:action="@{/user/new}" th:object="${user}" method="post">
+								<form action="#" th:action="@{/user/new}" th:object="${userDTO}" method="post">
 
 									<div id="carouselExampleControlsNoTouching" class="carousel slide"
 										data-bs-touch="false" data-bs-interval="false">
@@ -102,19 +102,20 @@
 													<div class="col-md-8">
 														<label class="form-label">Cidade</label>
 														<input type="text" placeholder="Cidade"
-															th:field="*{address.city}" class="form-control"
+															th:field="*{addressDTO.city}" class="form-control"
 															th:errorclass="is-invalid" />
-														<div class="invalid-feedback" th:errors="*{address.city}"></div>
+														<div class="invalid-feedback" th:errors="*{addressDTO.city}">
+														</div>
 													</div>
 
 													<div class="col-md-4">
 														<label class="form-label">Estado</label>
 														<select class="form-select" name="state"
-															th:field="*{address.state}" th:errorclass="is-invalid">
-															<option value=""></option>
+															th:field="*{addressDTO.state}" th:errorclass="is-invalid">
+															<option value="Bahia">BA</option>
 
 														</select>
-														<div class="invalid-feedback" th:errors="*{address.state}">
+														<div class="invalid-feedback" th:errors="*{addressDTO.state}">
 														</div>
 
 													</div>
@@ -122,10 +123,10 @@
 													<div class="col-12">
 														<label class="form-label">Endereço</label>
 														<input type="text" placeholder="Endereço"
-															th:field="*{address.addressName}" class="form-control"
+															th:field="*{addressDTO.addressName}" class="form-control"
 															th:errorclass="is-invalid" />
 														<div class="invalid-feedback"
-															th:errors="*{address.addressName}">
+															th:errors="*{addressDTO.addressName}">
 														</div>
 
 													</div>
@@ -133,9 +134,10 @@
 													<div class="col-md-6">
 														<label for="inputBairro" class="form-label">Bairro</label>
 														<input type="text" placeholder="Bairro"
-															th:field="*{address.district}" class="form-control"
+															th:field="*{addressDTO.district}" class="form-control"
 															th:errorclass="is-invalid" />
-														<div class="invalid-feedback" th:errors="*{address.district}">
+														<div class="invalid-feedback"
+															th:errors="*{addressDTO.district}">
 														</div>
 													</div>
 
@@ -143,18 +145,19 @@
 														<label for="inputComplemento"
 															class="form-label">Complemento</label>
 														<input type="text" placeholder="Casa, Apartamento..."
-															th:field="*{address.complement}" class="form-control"
+															th:field="*{addressDTO.complement}" class="form-control"
 															th:errorclass="is-invalid" />
-														<div class="invalid-feedback" th:errors="*{address.complement}">
+														<div class="invalid-feedback"
+															th:errors="*{addressDTO.complement}">
 														</div>
 													</div>
 
 													<div class="col-md-2">
 														<label for="inputNumbEndereco" class="form-label">Número</label>
 														<input type="text" placeholder="123"
-															th:field="*{address.number}" class="form-control"
+															th:field="*{addressDTO.number}" class="form-control"
 															th:errorclass="is-invalid" />
-														<div class="invalid-feedback" th:errors="*{address.number}">
+														<div class="invalid-feedback" th:errors="*{addressDTO.number}">
 														</div>
 													</div>
 
@@ -194,10 +197,12 @@
 
 												<div class="mb-3">
 													<label for="inputEmail" class="form-label">Email</label>
-													<input type="text" placeholder="Email" th:field="*{userLogin.email}"
-														class="form-control" th:errorclass="is-invalid" />
+													<input type="text" placeholder="Email"
+														th:field="*{userLoginDTO.email}" class="form-control"
+														th:errorclass="is-invalid" />
 
-													<div class="invalid-feedback" th:errors="*{userLogin.email}"></div>
+													<div class="invalid-feedback" th:errors="*{userLoginDTO.email}">
+													</div>
 													<div id="emailHelp" class="form-text">Informe um e-mail válido,
 														confirme-o logo abaixo.</div>
 												</div>
@@ -207,8 +212,10 @@
 													<label for="inputConfEmail" class="form-label">Confirme o
 														E-mail</label>
 													<input type="text" placeholder="Confirme o Email"
-														class="form-control" />
-													<div class="invalid-feedback">
+														th:field="*{userLoginDTO.verifyEmail}" class="form-control"
+														th:errorclass="is-invalid">
+													<div class="invalid-feedback"
+														th:errors="*{userLoginDTO.verifyEmail}">
 													</div>
 
 												</div>
@@ -217,8 +224,8 @@
 												<div class="mb-3">
 													<label for="inpuPassword" class="form-label">Senha</label>
 													<input type="password" class="form-control" placeholder="Senha"
-														th:field="*{userLogin.password}" th:errorclass="is-invalid">
-													<div class="invalid-feedback" th:errors="*{userLogin.password}">
+														th:field="*{userLoginDTO.password}" th:errorclass="is-invalid">
+													<div class="invalid-feedback" th:errors="*{userLoginDTO.password}">
 													</div>
 													<div id="senhaHelp" class="form-text">*A senha deve conter no mínimo
 														8 dígitos</div>
@@ -230,10 +237,17 @@
 													<label for="inputConfPassword" class="form-label">Confirme a
 														senha</label>
 													<input type="password" class="form-control"
-														placeholder="Confirme a senha">
-													<div class="invalid-feedback">
+														placeholder="Confirme a senha"
+														th:field="*{userLoginDTO.verifyPassword}"
+														th:errorclass="is-invalid">
+													<div class="invalid-feedback"
+														th:errors="*{userLoginDTO.verifyPassword}">
 													</div>
 
+												</div>
+
+												<div class="text-danger">
+													<span th:errors="*{userLoginDTO}"></span>
 												</div>
 
 
@@ -246,6 +260,7 @@
 															Conta!</button>
 													</div>
 												</div>
+
 
 
 											</div>

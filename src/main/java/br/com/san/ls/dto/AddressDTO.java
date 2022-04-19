@@ -2,16 +2,23 @@ package br.com.san.ls.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.san.ls.entity.Address;
 
 public class AddressDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotBlank
 	private String city;
+	@NotBlank
 	private String state;
+	@NotBlank
 	private String addressName;
+	@NotBlank
 	private String district;
+	
 	private String complement;
 	private Integer number;
 
