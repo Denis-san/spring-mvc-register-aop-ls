@@ -16,8 +16,9 @@ public class UserDaoImpl implements UserDAO {
 	private EntityManager entityManager;
 
 	@Override
-	public void saveUser(User user) {
+	public User saveUser(User user) {
 		entityManager.persist(user);
+		return user;
 	}
 
 }

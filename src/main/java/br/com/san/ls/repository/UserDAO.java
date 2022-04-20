@@ -4,5 +4,5 @@ import br.com.san.ls.entity.User;
 
 public interface UserDAO {
 
-	public void saveUser(User user);
+	public User saveUser(User user);
 }

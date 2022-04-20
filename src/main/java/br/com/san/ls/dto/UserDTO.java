@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 import br.com.san.ls.entity.User;
+import br.com.san.ls.entity.UserLogin;
 
 public class UserDTO implements Serializable {
 
@@ -70,7 +71,11 @@ public class UserDTO implements Serializable {
 		user.setName(this.name);
 		user.setLastName(this.lastName);
 		user.setAddress(addressDTO.toAddress());
-		user.setUserLogin(userLoginDTO.toUserLogin());
+
+		UserLogin userLogin = new UserLogin();
+		userLogin.setEmail(userLoginDTO.getVerifyEmail());
+		userLogin.setPassword(userLoginDTO.getPassword());
+		user.setUserLogin(userLogin);
 		return user;
 	}
 

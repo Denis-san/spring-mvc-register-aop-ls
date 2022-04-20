@@ -37,7 +37,7 @@ public class UserRegisterController {
 			service.save(userDTO.toUser());
 			mv.setViewName("/register_templates/welcome_user.html");
 		}
-		
+
 		return mv;
 	}
 
