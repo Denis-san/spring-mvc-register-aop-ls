@@ -6,10 +6,10 @@ Aplicação web no padrão MVC com Spring MVC + Thymeleaf. Objetivo: aplicação
 <img src="/screenshots/logs.png" alt="screenshot log">
 
 
-O advice @Before será executado antes de qualquer método de qualquer classe dos pacotes Controller, Service e repository.
+O advice @Before será executado antes de qualquer método de qualquer classe dos pacotes Controller, Service e repository, registrando um log exibindo os métodos que foram chamados.
 
 <img src="/screenshots/before-advice.png" alt="screenshot log">
 
 O advice @AfterReturning é "acionado" após a execução bem sucedida do método save de qualquer classe do pacote Service, registrando um log com o id do novo usuário.
 
-<img src="/screenshots/afteReturn-advice.png" alt="screenshot log">
+<img src="screenshots/afterReturn-advice.png" alt="screenshot log">
